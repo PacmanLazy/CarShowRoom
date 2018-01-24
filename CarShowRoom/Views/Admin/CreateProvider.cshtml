@@ -1,0 +1,39 @@
+﻿@using System.Collections
+@model Provider
+@{
+    Layout = "_Admin";
+}
+<div class="admin-form">
+    @using (Html.BeginForm("CreateProvider", "Admin", "post"))
+    {
+        <legend>Create new Provider</legend>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, "Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, "Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ContactInfo.Country, "Country", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ContactInfo.Country, "Country", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactInfo.Country, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ContactInfo.City, "City", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ContactInfo.City, "City", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactInfo.City, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ContactInfo.Address, "Address", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ContactInfo.Address, "Address", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactInfo.Address, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ContactInfo.Phone, "Phone", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ContactInfo.Phone, "Phone", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactInfo.Phone, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ContactInfo.Email, "Email", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ContactInfo.Email, "Email", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactInfo.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create Provider" class="btn btn-default" />
+        </div>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@using System.Collections
+@model Employee
+@{
+    Layout = "_Admin";
+}
+<div class="admin-form">
+    @using (Html.BeginForm("CreateEmployee", "Admin", "post"))
+    {
+        <legend>Create new Employee</legend>
+        <div class="form-group">
+            @* Data for Person*@
+            @Html.LabelFor(m => m.Person.LName, "Last Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.LName, "Last Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.LName, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.FName, "First Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.FName, "First Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.FName, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.MName, "Middle Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.MName, "Middle Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.MName, "", new { @class = "text-danger" })
+            @*//////////////////*@
+            @Html.LabelFor(m => m.Person.ContactInfo.Country, "Country", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.ContactInfo.Country, "Country", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.ContactInfo.Country, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.ContactInfo.City, "City", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.ContactInfo.City, "City", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.ContactInfo.City, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.ContactInfo.Address, "Address", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.ContactInfo.Address, "Address", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.ContactInfo.Address, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.ContactInfo.Phone, "Phone", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.ContactInfo.Phone, "Phone", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.ContactInfo.Phone, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Person.ContactInfo.Email, "Email", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Person.ContactInfo.Email, "Email", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Person.ContactInfo.Email, "", new { @class = "text-danger" })
+            @*Direct Employee info*@
+            @Html.LabelFor(m => m.Birthday, "Birthday", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Birthday, "Birthday", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Birthday, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.HireDate, "Hire Date", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.HireDate, "Hire Date", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.HireDate, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.PositionId, "Position", new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.PositionId, ViewData["Positions"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PositionId, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create Employee" class="btn btn-default" />
+        </div>
+    }
+</div>
+

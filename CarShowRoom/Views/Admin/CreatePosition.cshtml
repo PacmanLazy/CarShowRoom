@@ -1,0 +1,20 @@
+﻿@using System.Collections
+@model Position
+@{ 
+    Layout = "_Admin";
+}
+
+<div class="admin-form">
+    @using (Html.BeginForm("CreatePosition", "Admin", "post"))
+    {
+        <legend>Create new Position</legend>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, "Position Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, "Position Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create Position" class="btn btn-default" />
+        </div>
+    }
+</div>

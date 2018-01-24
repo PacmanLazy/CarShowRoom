@@ -1,0 +1,18 @@
+﻿@model Car
+@{
+    Layout = "_Admin";
+}
+
+<div class="admin-form">
+    <form asp-controller="Admin" asp-action="File" enctype="multipart/form-data">
+        <legend>Upload Files</legend>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input class="form-control" name="files" type="file" multiple/>
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </form>
+</div>

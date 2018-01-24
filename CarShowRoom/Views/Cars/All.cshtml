@@ -1,0 +1,34 @@
+﻿@using System.Collections
+@model IEnumerable<CarViewModel>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6">
+                <div class="car_block thumbnail">
+                    <img class="car_img" src="~/Data/@item.Id/@item.DefaultImage" alt="...">
+                    <div class="caption">
+                        <h4>@item.Model @item.Modification</h4>
+                        <p>
+                            <b>Price:</b> @item.StarterPrice USD
+                        </p>
+                        <p>
+                            <b>Engine volume:</b>@item.EngineVolume L
+                        </p>
+                        <p>
+                            <b>Fuel wasting: </b>@item.FuelCons L/100km
+                        </p>
+                        <p>
+                            <b>Status: </b>@item.Status
+                        </p>
+                        <p>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info" role="button">Details</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

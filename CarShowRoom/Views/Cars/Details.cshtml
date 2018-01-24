@@ -1,0 +1,272 @@
+﻿@model CarDetails
+<div class="container details">
+    <h1>@Model.Car.Model @Model.Car.Modifcn</h1>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#gen" data-toggle="tab">General</a>
+        </li>
+        <li>
+            <a href="#tech" data-toggle="tab">Tech Specs</a>
+        </li>
+        <li>
+            <a href="#photo" data-toggle="tab">Photo</a>
+        </li>
+        <li>
+            <a href="#order" data-toggle="tab">Order</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="gen" class="tab-pane fade in active">
+            <h3>General Description</h3>
+            <div class="desc_img thumbnail"><img src="~/Data/@Model.Car.Id/@Model.Car.CarImages[0].ImageName" alt="..."></div>
+            <table class="table table-striped desc_table">
+                <tr>
+                    <td><p><b>Color: </b></p></td>
+                    <td><p>@Model.Car.Color</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Provider: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Provider.Name</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><b>Receipt Date: </b></p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(m => m.Car.ReceiptDate)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><b>Starter Price: </b></p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.StarterPrice USD</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><b>Status: </b></p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Status.Name</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="tech" class="tab-pane fade">
+            <h3>Technical specification</h3>
+            <table class="table table-striped desc_table">
+                <tr>
+                    <td>
+                        <p>
+                            <b>Length: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.Length mm</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Width: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.Width mm</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Height: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.Height mm</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Number of seats: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.NumOfSeats</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Weight: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.Weight kg</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Max speed: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.MaxSpeed km/h</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Engine Type: </b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.EngineType</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Engine Volume</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.EngineVolume L</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Supply System</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.SupplySystem</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Fuel Consumption</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p>@Model.Car.Specs.FuelConsumption L/100km</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="photo" class="tab-pane fade">
+            <h3>Photo</h3>
+            @foreach (var item in Model.Car.CarImages)
+            {
+                <div class="desc_img thumbnail"><img src="~/Data/@Model.Car.Id/@item.ImageName" alt="..."></div>
+            }
+
+        </div>
+
+        <div id="order" class="tab-pane fade">
+            <form asp-action="Order" method="POST" role="form">
+                <h3>Order current Car</h3><hr />
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.LName">Last Name</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.LName">
+                    <span asp-validation-for="Order.Customer.Person.LName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.FName">First Name</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.FName">
+                    <span asp-validation-for="Order.Customer.Person.FName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.MName">Middle Name</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.MName">
+                    <span asp-validation-for="Order.Customer.Person.MName" class="text-danger"></span>
+                </div>
+                @*Contact Info*@
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.ContactInfo.Country">Country</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.ContactInfo.Country">
+                    <span asp-validation-for="Order.Customer.Person.ContactInfo.Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.ContactInfo.City">City</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.ContactInfo.City">
+                    <span asp-validation-for="Order.Customer.Person.ContactInfo.City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.ContactInfo.Address">Address</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.ContactInfo.Address">
+                    <span asp-validation-for="Order.Customer.Person.ContactInfo.Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.ContactInfo.Phone">Phone</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.ContactInfo.Phone">
+                    <span asp-validation-for="Order.Customer.Person.ContactInfo.Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Customer.Person.ContactInfo.Email">Email</label>
+                    <input class="form-control" asp-for="Order.Customer.Person.ContactInfo.Email">
+                    <span asp-validation-for="Order.Customer.Person.ContactInfo.Email" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="Order.CarId" value="@Model.Car.Id" />
+                <button type="submit" class="btn btn-primary">Order Car</button>
+            </form>
+            @*<form asp-action="Order" method="POST" role="form">
+                    <legend>Order current car</legend>
+
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mname">Middle Name</label>
+                        <input type="text" class="form-control" id="mname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addr">Phone</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addr">City</label>
+                        <input type="text" class="form-control" id="addr">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Order Car</button>
+                </form>*@
+
+        </div>
+    </div>
+</div>

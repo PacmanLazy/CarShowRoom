@@ -1,0 +1,129 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 1195px){
+    .search{
+        display: none;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px){
+    .search{
+        display: block;
+        border-top: none;
+    }
+    .search-field{
+        display:block;
+        max-width:200px;
+        min-width: 200px;
+        margin-bottom:5px;
+        float:left;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .search-btn{
+        display:block;
+        margin-top: 5px;
+        margin-right: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    .form-group{
+        max-width:300px;
+        min-width: 300px;
+        margin: 10px auto 10px auto;
+    }
+    
+    nav{
+        position: fixed;
+    }
+
+	#top_menu{
+        background-color: #404042;
+    }
+
+    .menu li{
+		display: block;
+		text-align: center;
+    }
+    
+    .menu li a{
+		display: block;
+	}
+
+    .menu_btn{
+		height: 50px;
+		width:  50px;
+		border-radius: 25%;
+        border: 1px solid #313133;
+        color: #313133;
+        font-size: 24px;
+    }
+    .menu_btn span{
+        top: -17px;
+    }
+}
+
+@media only screen and (max-width : 480px){
+    .form-group{
+        padding-left: 0px;
+    }
+    nav{
+        position: fixed;
+    }
+
+    #top_menu{
+        background-color: #404042;
+    }
+
+    .menu li{
+		display: block;
+		text-align: center;
+    }
+    
+    .menu li a{
+		display: block;
+	}
+
+    .menu_btn{
+		height: 50px;
+		width: 50px;
+		border-radius: 25%;
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    .form-group{
+        padding-left: 0px;
+    }
+
+    nav{
+        position: fixed;
+    }
+
+    .menu_btn{
+		height: 50px;
+		width: 50px;
+		border-radius: 25%;
+    }
+    
+    .menu li{
+		display: block;
+		text-align: center;
+    }
+
+    .menu li a{
+		display: block;
+	}
+}

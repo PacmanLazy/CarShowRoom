@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="admin_container">
+    @section Admin{
+
+        <div class="admin-form pull-left admin-nav">
+            <ul>
+                <li>@Html.ActionLink("Create new Status", "CreateStatus", "Admin")</li>
+                <li>@Html.ActionLink("Create new Provider", "CreateProvider", "Admin")</li>
+                <li>@Html.ActionLink("Create new Position", "CreatePosition", "Admin")</li>
+                <li>@Html.ActionLink("Create new Payment Method", "CreatePayMethod", "Admin")</li>
+                <li>@Html.ActionLink("Create new Employee", "CreateEmployee", "Admin")</li>
+                <li>@Html.ActionLink("Create new Customer", "CreateCustomer", "Admin")</li>
+                <li>@Html.ActionLink("Create new Car", "CreateCar", "Admin")</li>
+            </ul>
+        </div>
+
+    }
+
+    @RenderBody()
+</div>

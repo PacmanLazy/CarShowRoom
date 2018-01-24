@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap CSS -->
+    <enviroment names="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="~/css/main.css" rel="stylesheet" />
+        <link href="~/css/media.css" rel="stylesheet" />
+    </enviroment>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container-fluid">
+
+                <div class="row navbar-left">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed menu_btn" data-toggle="collapse" data-target="#top_menu">
+
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+
+                        </button>
+
+                        <a href="@Url.Action("Index", "Home")" class="navbar-brand logo">
+                            <img src="~/img/logo.jpg" width="240" height="74" alt="logo">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="top_menu">
+                    <ul class="menu">
+                        <li>
+                            <form class="navbar-form search align-center" role="search">
+                                <div class="form-group">
+                                    <input class="form-control search-field" disabled type="text" />
+                                    <button type="submit" class="btn btn-default search-btn" disabled>search</button>
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cars", "All", "Cars", null)
+                        </li>
+                        <li>
+                            @Html.ActionLink("Contacts", "Contacts", "Home", null)
+                        </li>
+                        <li>
+                            @Html.ActionLink("About", "Index", "Home", null)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="content">
+    @RenderSection("Admin", required:false)
+    @RenderBody()
+    </section>
+
+    <footer class="footer">
+        <div class="main_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/mercedes-benz.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/bmw.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/audi.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/toyota.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/volkswagen.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footer_item">
+                            <img class="image-responsive" src="~/img/opel.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright_block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="copy_txt">
+                            <time>2017</time> &copy; Developed by Sergey Ostanevych
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <enviroment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </enviroment>
+</body>
+</html>

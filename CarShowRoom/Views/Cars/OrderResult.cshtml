@@ -1,0 +1,37 @@
+﻿@model Order
+
+<div class="container">
+    <div>
+        <h3>
+            You have ordered
+            <span class="text-info">
+                <a asp-action="Details" asp-route-id="@Model.Car.Id" target="_blank">@Model.Car.Model @Model.Car.Modifcn</a>
+            </span>
+        </h3>
+        <h3>Your personal Data</h3>
+        <table class="table table-striped">
+            <tr>
+                <td><p><b>Last Name: </b></p></td>
+                <td><p>@Model.Customer.Person.LName</p></td>
+            </tr>
+            <tr>
+                <td><p><b>First Name: </b></p></td>
+                <td><p>@Model.Customer.Person.FName</p></td>
+            </tr>
+            <tr>
+                <td><p><b>Middle Name: </b></p></td>
+                <td><p>@Model.Customer.Person.MName</p></td>
+            </tr>
+            <tr>
+                <td><p><b>Phone: </b></p></td>
+                <td><p>@Model.Customer.Person.ContactInfo.Phone</p></td>
+            </tr>
+            <tr>
+                <td><p><b>Email: </b></p></td>
+                <td><p>@Model.Customer.Person.ContactInfo.Email</p></td>
+            </tr>
+        </table>
+        <h5>Order Date and Time: @ViewBag.OrderDt</h5>
+    </div>
+</div>
+</div>
